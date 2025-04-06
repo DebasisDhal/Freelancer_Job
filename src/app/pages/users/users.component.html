@@ -1,3 +1,6 @@
+<div class="card flex justify-center">
+    <p-datepicker [(ngModel)]="date" />
+</div>
 <div class="row">
     <div class="col-12">
         <table>
@@ -60,3 +63,20 @@
         </table>
     </div>
 </div>
+
+<button onclick="onBtnExport()">Download CSV export file</button>
+ <!-- The AG Grid component -->
+ <ag-grid-angular class="ag-theme-alpine" style="height: 500px; width: 100%;"
+ [rowData]="rowData"
+ [columnDefs]="colDefs" 
+ [defaultColDef]="defaultColDe"
+  />
+
+  <!-- <p id="a1" style="color: red;">Ng style check</p> -->
+  <!-- <p id="a1" [style.color]="'red'" >Ng style check</p> -->
+  <!-- <p id="a1" [ngStyle]="onP" >Ng style check</p> -->
+  <!-- <p id="a1" [ngStyle]="getStyle()" >Ng style check</p> -->
+  <p #a1 >Ng style check</p>
+
+
+

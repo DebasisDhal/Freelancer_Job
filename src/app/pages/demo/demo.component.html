@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .board {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            background: white;
+            padding: 10px;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .column h2 {
+            text-align: center;
+        }
+        .ticket {
+            background: #e0e0e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event,'Pending')">
+            <h2>To Do</h2>
+            <div class="ticket" *ngFor ="let ti of filterTicket('Pending')" draggable="true" (dragstart)="onDragStart(ti)">{{ti.ticketName}}</div>
+           
+        </div>
+        <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event,'In Progress')">
+            <h2>In Progress</h2>
+            <div class="ticket"  *ngFor ="let ti of filterTicket('In Progress')" draggable="true" (dragstart)="onDragStart(ti)">{{ti.ticketName}}</div>
+            
+        </div>
+        <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop($event,'Done')">
+            <h2>Done</h2>
+            <div class="ticket" *ngFor ="let ti of filterTicket('Completed')" draggable="true" (dragstart)="onDragStart(ti)">{{ti.ticketName}}</div>
+        </div>
+    </div>
+</body>
+</html>

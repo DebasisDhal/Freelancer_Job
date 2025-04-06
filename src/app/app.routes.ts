@@ -5,6 +5,7 @@ import { JobsComponent } from './pages/jobs/jobs.component';
 import { NewJobComponent } from './pages/new-job/new-job.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { UsersComponent } from './pages/users/users.component';
+import { DemoComponent } from './pages/demo/demo.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path:'users',
         component:UsersComponent
+    },
+    {
+        path:'demo',
+        component:DemoComponent
     },
     {
         path:'**',

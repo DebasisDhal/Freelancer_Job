@@ -12,7 +12,14 @@ import { IAPIResponce, UserList } from '../models/interface/Master';
 })
 export class UsersService {
 
-  constructor(private http:HttpClient) { }
+  loggedUserData:any;
+
+  constructor(private http: HttpClient) { 
+    const localData = localStorage.getItem(Constant.lOCAL_STRORAGE_KEYS.LOGGED_USER);
+    if (localData) {
+      this.loggedUserData = JSON.parse(localData)
+    }
+  }
 
 
   registerUser(obj: UserRegister) : Observable<IAPIResponce>{
@@ -48,6 +55,11 @@ export class UsersService {
         }) 
       })
     );
+  }
+
+  login(obj: any): Observable<IAPIResponce> {
+    debugger;
+    return this.http.post<IAPIResponce>(environment.API_URL + Constant.API_METHOD_NAME.USER.LOGIN, obj)
   }
 
   getAllUsers3(): Observable<UserList[]> { 

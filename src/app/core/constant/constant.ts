@@ -2,10 +2,16 @@ export const Constant = {
     API_METHOD_NAME: {
         USER: {
             GET_ALL_USERS: 'GetAllUsers',
-            CREATE_USER: 'Register'
+            CREATE_USER: 'Register',
+            UPDATE_USER: 'UpdateUser',
+            LOGIN:'login',
+            DELETE_USER: 'DeleteUserByUserId?userId='
         },
         JOB: {
-            GET_ALL_JOBS: 'GetAllJob'
+            GET_ALL_JOBS: 'GetAllJobs',
+            CREATE_NEW_JOB:'CreateNewProjectJob',
+            GET_JOB_BY_ID:'GetJobById?id=',
+            GET_ALL_JOBS_BY_USERID:'GetProjectsCreatedByUserId?userId=',
         }
     },
     KEY:{
@@ -22,6 +28,9 @@ export const Constant = {
     REG_EX:{
         PAN_CARD:"",
         AADHAR_CARD: ""
+    },
+    lOCAL_STRORAGE_KEYS:{
+        LOGGED_USER:'freeUser'
     }
 
 }
